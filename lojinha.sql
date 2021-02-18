@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2021 at 08:24 PM
+-- Generation Time: Feb 18, 2021 at 01:39 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -41,9 +41,9 @@ CREATE TABLE `produto` (
 
 INSERT INTO `produto` (`idProduto`, `nome`, `valor`, `descricao`, `urlImg`) VALUES
 (6, 'Celular Motorola Moto e6s', 899, 'Cor: Cinza, Capacidade: 32GB', 'resources/images/celular.jpg'),
-(7, 'Caneta', 2, 'Cor: Azul', 'resources/images/caneta.jpg'),
-(8, 'Gabinete', 699, 'Gabinete gamer', 'resources/images/computador.jpg'),
-(9, 'Impressora HP', 499, 'Cor: Branca, Multifuncional', 'resources/images/impressora.jpg');
+(7, 'Caneta Azul, azul caneta', 2, 'Cor: Azul', 'resources/images/caneta.jpg'),
+(9, 'Impressora HP', 499, 'Cor: Branca, Multifuncional', 'resources/images/impressora.jpg'),
+(11, 'Gabinete', 524, 'Gabinete gamer', 'resources/images/computador.jpg');
 
 -- --------------------------------------------------------
 
@@ -66,8 +66,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`login`, `senha`, `nome`, `cpf`, `telefone`, `endereco`, `flagAdmin`) VALUES
-('joao', '123', 'João Bernardino', '07470085319', '879798797987', 'Rua 12, 210', 0),
-('jonathan', '123', 'Jonathan Silva', '07470085319', '(85) 9853-12872', 'Rua Cento e Vinte e Cinco, 20', 1);
+('jonathan', '123', 'Jonathan Silva', '07470085319', '(85) 9853-12872', 'Rua Cento e Vinte e Cinco, 20', 1),
+('lucas', '123', 'Lucas', '07470085319', '(85) 9853-12871', 'Rua 12, 210', 0);
 
 -- --------------------------------------------------------
 
@@ -84,6 +84,13 @@ CREATE TABLE `vendas` (
   `valor` double NOT NULL,
   `idProdutoFk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `vendas`
+--
+
+INSERT INTO `vendas` (`idVenda`, `data`, `nomeComprador`, `cartaoComprador`, `codSegurancaComprador`, `valor`, `idProdutoFk`) VALUES
+(8, 'Wed Feb 17 21:03:37 BRT 2021', 'Lucas', '4129847291479247', '412', 899, 6);
 
 --
 -- Indexes for dumped tables
@@ -116,13 +123,13 @@ ALTER TABLE `vendas`
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `vendas`
 --
 ALTER TABLE `vendas`
-  MODIFY `idVenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idVenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
